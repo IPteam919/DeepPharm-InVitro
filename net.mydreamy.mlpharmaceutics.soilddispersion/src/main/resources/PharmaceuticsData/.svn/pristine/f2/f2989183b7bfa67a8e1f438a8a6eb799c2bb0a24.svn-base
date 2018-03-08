@@ -1,0 +1,32 @@
+﻿MW(g/mol),melting point( ℃）,XLogP3,Hydrogen Bond Donor Count,Hydrogen Bond Acceptor Count,Rotatable Bond Count,Topological Polar Surface Area(A^2),Heavy Atom Count,Complexity,logS,Polymers,Drug loading ratio,Preparation method(hot melt extrution-1=1；solvent evaporation=2=2）,temperature（℃）,Relative Humidity（%）,3month（stabable=1，not stable=0）,6month（stabable=1，not stable=0）,reference
+705.641,166.2,5.7,0,9,11,101,49,1120,-4.9,6,0.5,1,40,75,1,0,Physical stabilization of amorphous itraconazole in solid dispersions for improved dissolution profile 
+351.395,254,3,2,7,2,136,23,628,-3.4,6,0.25,1,40,75,0,0,Physicochemical and Pharmacokinetic Characterization of Amorphous Solid Dispersion of Meloxicam with Enhanced Dissolution Property and Storage Stability 
+351.395,254,3,2,7,2,136,23,628,-3.4,11,0.25,1,40,50,0,0,Physicochemical and Pharmacokinetic Characterization of Amorphous Solid Dispersion of Meloxicam with Enhanced Dissolution Property and Storage Stability 
+381.373,158,3.4,1,7,3,86.4,26,577,-4.9,7,0.8,1,40,75,1,0,Effect of Temperature and Moisture on the Physical Stability of Binary and Ternary Amorphous Solid Dispersions of Celecoxib 
+381.373,158,3.4,1,7,3,86.4,26,577,-4.9,10,0.8,1,40,75,0,0,Effect of Temperature and Moisture on the Physical Stability of Binary and Ternary Amorphous Solid Dispersions of Celecoxib 
+381.373,158,3.4,1,7,3,86.4,26,577,-4.9,6,0.8,1,40,75,0,0,Effect of Temperature and Moisture on the Physical Stability of Binary and Ternary Amorphous Solid Dispersions of Celecoxib 
+330.739,206,2,3,7,5,131,21,481,-3.5,9,0.2,2,40,75,0,0,Characterization during storage and dissolution of solid dispersions containing furosemide and hydroxypropyl methylcellulose 
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,25,0,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,25,23,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,25,54,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,25,75,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,40,0,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,40,23,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,40,54,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"
+176.124,191,-1.6,4,6,2,107.22,12,232,0.14,8,0.5,2,40,75,0,0,"Physical stability of L-ascorbic acid amorphous solid dispersions in
+different polymers: A study of polymer crystallization
+inhibitor properties"

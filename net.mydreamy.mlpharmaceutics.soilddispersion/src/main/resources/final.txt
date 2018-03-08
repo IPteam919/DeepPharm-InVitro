@@ -1,0 +1,222 @@
+	public static Logger log = LoggerFactory.getLogger(TranningSolidDispersion3and6.class);
+
+	//Random number generator seed, for reproducability
+    public static final int seed = 1234567890;
+    
+    public static boolean isRegression = false;
+    
+    //Number of iterations per minibatch
+    public static final int iterations = 1;
+    
+    //Number of epochs (full passes of the data)
+    public static final int nEpochs = 200;
+
+    //Batch size: i.e., each epoch has nSamples/batchSize parameter updates
+    public static final int trainsetsize = 200;
+    public static final int testsetsize = 20;
+    
+    //Network learning rate
+    public static final double learningRate = 0.01;
+    
+    //with api properties
+    public static final int numInputs = 15;
+    //
+    //public static final int numInputs = 18;
+    public static final int numOutputs = 2;
+    public static final int numHiddenNodes = 50;
+    
+            MultiLayerNetwork net = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
+                .seed(seed)
+                .iterations(iterations)
+                .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                .learningRate(learningRate)
+                .weightInit(WeightInit.RELU)
+//                .learningRateDecayPolicy(LearningRatePolicy.Step)
+//                .lrPolicyDecayRate(0.1)
+//                .lrPolicySteps(100000)
+                .regularization(true)
+                .l2(1e-3)
+                .gradientNormalization(GradientNormalization.RenormalizeL2PerLayer)
+              //  .dropOut(0.5)
+                .updater(Updater.NESTEROVS).momentum(0.8)
+              //  .updater(Updater.ADAM)
+                .list()
+                .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(1, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(2, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(3, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(4, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(5, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(6, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(7, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(8, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(9, new OutputLayer.Builder(LossFunctions.LossFunction.L2)
+                        .activation("sigmoid")
+                        .nIn(numHiddenNodes).nOut(numOutputs).build())
+                .pretrain(false).backprop(true).build()
+        );
+        net.init();
+        net.setListeners(new ScoreIterationListener(100));
+   
+
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 2000. Details: MaxEpochsTerminationCondition(2000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - Termination details: MaxEpochsTerminationCondition(2000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - Total epochs: 2001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - Best epoch number: 1400
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - Score at best epoch: 0.16187826556616294
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - test label value: 
+[[0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - test prediction value: 
+[[0.01, 0.01],
+ [0.01, 0.01],
+ [0.99, 0.99],
+ [0.10, 0.07],
+ [0.06, 0.04],
+ [0.99, 0.89],
+ [0.98, 0.97],
+ [0.02, 0.00],
+ [0.02, 0.01],
+ [0.06, 0.00],
+ [1.00, 1.00],
+ [0.01, 0.02],
+ [0.07, 0.03],
+ [0.06, 0.03],
+ [0.03, 0.02],
+ [0.94, 0.92],
+ [0.03, 0.01],
+ [0.02, 0.00],
+ [0.08, 0.14],
+ [0.68, 0.32]]
+[main] INFO org.deeplearning4j.nn.multilayer.MultiLayerNetwork -  Layer 0 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=15, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 1 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 2 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 3 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 4 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 5 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 6 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 7 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 8 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 9 conf NeuralNetConfiguration(layer=OutputLayer(super=BaseOutputLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=sigmoid, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=2), lossFn=LossL2(), customLossFunction=null)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - train 3-6 correctness: 0.9709
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - test 3-6 correctness: 0.8500
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - test label value: 
+[[0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - test prediction value: 
+[[0.03, 0.02],
+ [0.04, 0.03],
+ [0.87, 0.94],
+ [0.17, 0.27],
+ [0.14, 0.08],
+ [0.91, 0.76],
+ [0.87, 0.89],
+ [0.06, 0.02],
+ [0.09, 0.04],
+ [0.12, 0.03],
+ [0.97, 0.98],
+ [0.05, 0.05],
+ [0.19, 0.17],
+ [0.10, 0.07],
+ [0.10, 0.13],
+ [0.83, 0.80],
+ [0.07, 0.03],
+ [0.07, 0.02],
+ [0.71, 0.55],
+ [0.38, 0.41]]
+[main] INFO org.deeplearning4j.nn.multilayer.MultiLayerNetwork -  Layer 0 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=15, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 1 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 2 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 3 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 4 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 5 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 6 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 7 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 8 conf NeuralNetConfiguration(layer=DenseLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=tanh, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=50)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN) Layer 9 conf NeuralNetConfiguration(layer=OutputLayer(super=BaseOutputLayer(super=FeedForwardLayer(super=Layer(layerName=null, activationFunction=sigmoid, weightInit=RELU, biasInit=0.0, dist=null, learningRate=0.01, biasLearningRate=0.01, learningRateSchedule=null, momentum=0.8, momentumSchedule={}, l1=0.0, l2=0.001, biasL1=0.0, biasL2=0.0, dropOut=0.0, updater=NESTEROVS, rho=NaN, epsilon=NaN, rmsDecay=NaN, adamMeanDecay=NaN, adamVarDecay=NaN, gradientNormalization=RenormalizeL2PerLayer, gradientNormalizationThreshold=1.0), nIn=50, nOut=2), lossFn=LossL2(), customLossFunction=null)), leakyreluAlpha=0.0, miniBatch=true, numIterations=1, maxNumLineSearchIterations=5, seed=1234567890, optimizationAlgo=STOCHASTIC_GRADIENT_DESCENT, variables=[W, b], stepFunction=null, useRegularization=true, useDropConnect=false, minimize=true, learningRateByParam={b=0.01, W=0.01}, l1ByParam={b=0.0, W=0.0}, l2ByParam={b=0.0, W=0.001}, learningRatePolicy=None, lrPolicyDecayRate=NaN, lrPolicySteps=NaN, lrPolicyPower=NaN)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - train 3-6 correctness: 0.9029
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6 - test 3-6 correctness: 0.9000
+
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6Prediction - test label value: 
+[[1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 1.00],
+ [1.00, 1.00],
+ [1.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 0.00],
+ [1.00, 1.00],
+ [1.00, 1.00],
+ [1.00, 1.00],
+ [0.00, 0.00],
+ [0.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6Prediction - test prediction value: 
+[[0.89, 0.66],
+ [0.13, 0.04],
+ [0.21, 0.37],
+ [0.02, 0.01],
+ [0.03, 0.02],
+ [0.96, 0.94],
+ [0.04, 0.03],
+ [0.35, 0.23],
+ [0.90, 0.40],
+ [0.86, 0.29],
+ [0.35, 0.43],
+ [0.94, 0.96],
+ [0.95, 0.72],
+ [0.63, 0.82],
+ [0.09, 0.04],
+ [0.31, 0.17],
+ [0.71, 0.66],
+ [0.95, 0.72],
+ [0.22, 0.01],
+ [0.83, 0.51]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion3and6Prediction - test 3-6 correctness: 0.7500

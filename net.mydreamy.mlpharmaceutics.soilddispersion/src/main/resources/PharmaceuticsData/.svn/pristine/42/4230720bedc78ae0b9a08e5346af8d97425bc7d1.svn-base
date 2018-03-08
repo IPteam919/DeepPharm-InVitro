@@ -1,0 +1,18 @@
+library(mlbench)
+
+
+allX <- read.csv("~/Desktop/PharmaceuticsData/SD/alldata.csv")
+
+scaledallx <- scale(data.matrix(allX[,1:15]))
+set.seed(5)
+
+numbers = dim(scaledallx)[1];
+
+## A random sample of 5 data points
+initalIndexes <- sample(numbers, 5)
+
+TrainningSet <- scaledallx[-initalIndexes, ]
+initalTestSet <- scaledallx[initalIndexes, ]
+
+SelectedIndex <- maxDissim(initalTestSet, TrainningSet, n = 15)
+FinalSelectedSet <- TrainningSet[SelectedIndex, ]

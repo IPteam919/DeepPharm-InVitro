@@ -1,0 +1,30 @@
+library(mlbench)
+library(caret)
+
+
+#trainingset <- read.csv("~/Desktop/PharmaceuticsData/OFDF/trainingset.csv")
+#testingset <- read.csv("~/Desktop/PharmaceuticsData/OFDF/testingset.csv")
+
+#allX = rbind(trainingset[2:95, 1:18], testingset[2:21, 1:18])
+
+allX<- read.csv("/Users/yylonly/Desktop/PharmaceuticsData/OFDF/alldata.csv")
+
+scaledallx <- scale(data.matrix(allX[,1:18]))
+set.seed(5)
+
+numbers = dim(scaledallx)[1];
+
+## A random sample of 5 data points
+#initalIndexes <- sample(numbers, 5)
+#initalIndexes <- c(7,99,103,107,114)
+initalIndexes <- c(1,24,59,74,91)
+
+
+TrainningSet <- scaledallx[-initalIndexes, ]
+initalTestSet <- scaledallx[initalIndexes, ]
+
+SelectedIndex <- maxDissim(initalTestSet, TrainningSet, n = 15)
+FinalSelectedSet <- TrainningSet[SelectedIndex, ]
+
+cat("Selected Indexes are: ", SelectedIndex, "\n", sep=",")
+write.csv(allX[SelectedIndex,], "selecteddata.csv", row.names = FALSE)

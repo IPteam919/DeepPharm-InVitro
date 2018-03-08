@@ -1,0 +1,219 @@
+
+6 layers
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 1999
+[main] INFO org.deeplearning4j.optimize.listeners.ScoreIterationListener - Score at iteration 2000 is 0.016104211419838428
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 2000
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 2000. Details: MaxEpochsTerminationCondition(2000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination details: MaxEpochsTerminationCondition(2000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Total epochs: 2001
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Best epoch number: 1000
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Score at best epoch: 0.049376540244147414
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.24, 0.21, 0.07, 0.05, 0.18, 0.19, 0.22, 0.46, 0.51, 0.51, 0.40, 0.30, 0.33, 0.31, 0.52, 0.25, 0.24, 0.28, 0.28, 0.34, 0.34, 0.27, 0.27, 0.29, 0.62, 0.63, 0.62, 0.63, 0.40, 0.16, 0.08, 0.09, 0.21, 0.17, 0.17, 0.04, 0.03, 0.04, 0.03, 0.03, 0.04, 0.04, 0.04, 0.04, 0.04, 0.36, 0.30, 0.35, 0.35, 0.20, 0.39, 0.33, 0.17, 0.20, 0.18, 0.32, 0.33, 0.20, 0.32, 0.45, 0.48, 0.16, 0.15, 0.15, 0.16, 0.16, 0.17, 0.16, 0.16, 0.16, 0.16, 0.16, 0.20, 0.44, 0.42, 0.42, 0.41, 0.29, 0.26, 0.25, 0.33, 0.33, 0.33, 0.13, 0.12, 0.13, 0.13, 0.12, 0.13, 0.13, 0.12, 0.14, 0.13, 0.13, 0.12, 0.30, 0.17, 0.41, 0.38, 0.35, 0.37, 0.34, 0.32, 0.33, 0.31]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0141300451
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.7635
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.25, 0.13, 0.27, 0.16, 0.13, 0.40, 0.54, 0.40, 0.12, 0.06, 0.33, 0.37, 0.05, 0.14, 0.22, 0.04, 0.50, 0.31, 0.19, 0.38]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0446327865
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.4610
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.33, 0.22, 0.20, 0.15, 0.15, 0.21, 0.19, 0.50, 0.48, 0.48, 0.40, 0.41, 0.31, 0.30, 0.48, 0.29, 0.29, 0.28, 0.28, 0.32, 0.32, 0.28, 0.28, 0.48, 0.53, 0.52, 0.53, 0.52, 0.52, 0.18, 0.18, 0.19, 0.20, 0.26, 0.26, 0.10, 0.07, 0.10, 0.07, 0.07, 0.10, 0.10, 0.10, 0.10, 0.10, 0.40, 0.30, 0.34, 0.34, 0.34, 0.24, 0.21, 0.23, 0.25, 0.24, 0.23, 0.26, 0.34, 0.33, 0.34, 0.35, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.19, 0.34, 0.35, 0.35, 0.34, 0.25, 0.23, 0.23, 0.27, 0.28, 0.28, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.16, 0.17, 0.17, 0.15, 0.35, 0.16, 0.33, 0.33, 0.34, 0.29, 0.29, 0.29, 0.25, 0.26]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0185726870
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.6753
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.28, 0.17, 0.28, 0.19, 0.17, 0.25, 0.49, 0.31, 0.37, 0.18, 0.53, 0.29, 0.20, 0.28, 0.17, 0.10, 0.49, 0.27, 0.25, 0.41]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0389081180
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.5060
+
+8 layers
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination details: MaxEpochsTerminationCondition(5000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Total epochs: 5001
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Best epoch number: 1000
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Score at best epoch: 0.05512049111463559
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.25, 0.15, 0.01, 0.00, 0.20, 0.17, 0.37, 0.48, 0.54, 0.54, 0.43, 0.33, 0.29, 0.28, 0.47, 0.26, 0.26, 0.28, 0.28, 0.38, 0.38, 0.28, 0.28, 0.25, 0.60, 0.65, 0.60, 0.65, 0.35, 0.10, 0.05, 0.06, 0.21, 0.17, 0.17, 0.05, 0.03, 0.05, 0.03, 0.03, 0.05, 0.05, 0.05, 0.05, 0.05, 0.30, 0.26, 0.35, 0.36, 0.23, 0.34, 0.39, 0.18, 0.19, 0.18, 0.40, 0.39, 0.16, 0.25, 0.45, 0.46, 0.13, 0.12, 0.12, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.25, 0.50, 0.48, 0.47, 0.47, 0.23, 0.22, 0.22, 0.32, 0.31, 0.30, 0.14, 0.14, 0.15, 0.14, 0.14, 0.15, 0.15, 0.14, 0.15, 0.15, 0.15, 0.11, 0.17, 0.13, 0.45, 0.42, 0.39, 0.37, 0.34, 0.32, 0.29, 0.27]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0125876847
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.7938
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.27, 0.14, 0.28, 0.13, 0.15, 0.34, 0.47, 0.53, 0.01, 0.01, 0.31, 0.49, 0.10, 0.21, 0.14, 0.05, 0.52, 0.29, 0.21, 0.32]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0564246953
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.3172
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.33, 0.22, 0.19, 0.14, 0.14, 0.20, 0.18, 0.51, 0.49, 0.49, 0.40, 0.40, 0.30, 0.29, 0.50, 0.28, 0.28, 0.27, 0.27, 0.31, 0.31, 0.27, 0.27, 0.50, 0.56, 0.55, 0.56, 0.55, 0.54, 0.17, 0.17, 0.18, 0.18, 0.23, 0.23, 0.09, 0.06, 0.09, 0.06, 0.06, 0.09, 0.09, 0.09, 0.09, 0.09, 0.43, 0.29, 0.33, 0.33, 0.34, 0.28, 0.23, 0.24, 0.28, 0.26, 0.25, 0.28, 0.35, 0.34, 0.35, 0.37, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.17, 0.34, 0.35, 0.34, 0.34, 0.26, 0.25, 0.24, 0.28, 0.29, 0.30, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.34, 0.15, 0.35, 0.35, 0.35, 0.30, 0.30, 0.30, 0.26, 0.26]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0179455825
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.6851
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.28, 0.14, 0.27, 0.17, 0.14, 0.28, 0.52, 0.28, 0.38, 0.17, 0.55, 0.27, 0.20, 0.27, 0.15, 0.09, 0.50, 0.30, 0.27, 0.44]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0372943819
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.5367
+
+10 layers
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 4999
+[main] INFO org.deeplearning4j.optimize.listeners.ScoreIterationListener - Score at iteration 5000 is 0.01668763975166144
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 5000
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 5000. Details: MaxEpochsTerminationCondition(5000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination details: MaxEpochsTerminationCondition(5000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Total epochs: 5001
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Best epoch number: 1000
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Score at best epoch: 0.061638521078353256
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.25, 0.15, 0.01, 0.01, 0.20, 0.17, 0.37, 0.48, 0.53, 0.53, 0.43, 0.33, 0.28, 0.28, 0.47, 0.26, 0.26, 0.28, 0.28, 0.38, 0.38, 0.28, 0.28, 0.25, 0.60, 0.65, 0.60, 0.65, 0.34, 0.11, 0.05, 0.06, 0.21, 0.17, 0.17, 0.05, 0.03, 0.05, 0.03, 0.03, 0.06, 0.06, 0.05, 0.06, 0.06, 0.30, 0.26, 0.35, 0.36, 0.23, 0.34, 0.39, 0.18, 0.19, 0.18, 0.40, 0.38, 0.16, 0.26, 0.45, 0.46, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.25, 0.50, 0.48, 0.47, 0.47, 0.22, 0.22, 0.22, 0.32, 0.31, 0.30, 0.14, 0.14, 0.15, 0.14, 0.14, 0.15, 0.15, 0.14, 0.15, 0.15, 0.15, 0.11, 0.17, 0.13, 0.45, 0.42, 0.39, 0.37, 0.34, 0.32, 0.29, 0.27]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0126378502
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.7928
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.27, 0.14, 0.28, 0.13, 0.15, 0.34, 0.47, 0.55, 0.02, 0.01, 0.31, 0.61, 0.10, 0.20, 0.15, 0.06, 0.52, 0.28, 0.21, 0.32]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0618355572
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.2697
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.32, 0.21, 0.17, 0.13, 0.13, 0.20, 0.18, 0.52, 0.50, 0.50, 0.40, 0.39, 0.29, 0.28, 0.49, 0.28, 0.28, 0.28, 0.28, 0.32, 0.32, 0.28, 0.28, 0.48, 0.56, 0.55, 0.56, 0.55, 0.53, 0.17, 0.18, 0.18, 0.19, 0.21, 0.21, 0.08, 0.06, 0.08, 0.06, 0.06, 0.08, 0.08, 0.08, 0.08, 0.08, 0.43, 0.29, 0.34, 0.33, 0.35, 0.29, 0.22, 0.24, 0.27, 0.26, 0.25, 0.27, 0.34, 0.34, 0.36, 0.38, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.16, 0.35, 0.36, 0.36, 0.35, 0.27, 0.25, 0.24, 0.30, 0.31, 0.32, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.13, 0.36, 0.14, 0.35, 0.35, 0.35, 0.30, 0.30, 0.30, 0.26, 0.26]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0175253017
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.6939
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.28, 0.13, 0.28, 0.16, 0.13, 0.30, 0.50, 0.31, 0.38, 0.17, 0.54, 0.33, 0.17, 0.27, 0.17, 0.08, 0.52, 0.28, 0.27, 0.43]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0388669848
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.5103
+
+                .weightInit(WeightInit.RELU)
+
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 999
+[main] INFO org.deeplearning4j.optimize.listeners.ScoreIterationListener - Score at iteration 1000 is 0.021044879968190815
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 1000
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 1000. Details: MaxEpochsTerminationCondition(1000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination details: MaxEpochsTerminationCondition(1000)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Total epochs: 1001
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Best epoch number: 100
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Score at best epoch: 0.1213223010393433
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.21, 0.23, 0.11, 0.31, 0.12, 0.13, 0.52, 0.39, 0.54, 0.54, 0.35, 0.33, 0.39, 0.33, 0.53, 0.26, 0.24, 0.34, 0.33, 0.41, 0.40, 0.32, 0.32, 0.25, 0.54, 0.57, 0.54, 0.57, 0.62, 0.08, 0.06, 0.07, 0.18, 0.21, 0.21, 0.04, 0.12, 0.05, 0.12, 0.12, 0.04, 0.04, 0.04, 0.04, 0.04, 0.35, 0.32, 0.26, 0.26, 0.25, 0.31, 0.40, 0.14, 0.27, 0.17, 0.37, 0.30, 0.03, 0.11, 0.44, 0.68, 0.09, 0.07, 0.07, 0.08, 0.08, 0.10, 0.07, 0.08, 0.08, 0.09, 0.08, 0.15, 0.71, 0.53, 0.49, 0.44, 0.29, 0.25, 0.23, 0.26, 0.27, 0.28, 0.14, 0.10, 0.18, 0.14, 0.10, 0.18, 0.18, 0.10, 0.22, 0.18, 0.18, 0.46, 0.09, 0.16, 0.68, 0.56, 0.42, 0.26, 0.19, 0.14, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0042200773
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.9356
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.28, 0.14, 0.32, 0.09, 0.18, 0.33, 0.58, 0.42, 0.35, 0.03, 0.45, 0.28, 0.07, 0.08, 0.13, 0.04, 0.50, 0.32, 0.21, 0.35]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0472366095
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.4314
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.20, 0.22, 0.19, 0.18, 0.16, 0.26, 0.36, 0.47, 0.48, 0.48, 0.36, 0.34, 0.35, 0.34, 0.53, 0.29, 0.29, 0.31, 0.31, 0.38, 0.38, 0.31, 0.31, 0.32, 0.56, 0.57, 0.56, 0.57, 0.49, 0.14, 0.12, 0.13, 0.15, 0.21, 0.21, 0.06, 0.10, 0.08, 0.10, 0.10, 0.06, 0.06, 0.06, 0.06, 0.06, 0.34, 0.25, 0.28, 0.28, 0.25, 0.28, 0.37, 0.18, 0.18, 0.18, 0.34, 0.40, 0.14, 0.23, 0.53, 0.54, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.14, 0.53, 0.52, 0.52, 0.51, 0.22, 0.21, 0.21, 0.26, 0.28, 0.31, 0.15, 0.14, 0.16, 0.15, 0.14, 0.16, 0.16, 0.14, 0.16, 0.16, 0.16, 0.32, 0.17, 0.17, 0.46, 0.45, 0.43, 0.35, 0.34, 0.32, 0.27, 0.26]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0089985984
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.8591
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.30, 0.15, 0.31, 0.10, 0.16, 0.28, 0.54, 0.28, 0.34, 0.14, 0.44, 0.18, 0.21, 0.20, 0.14, 0.06, 0.48, 0.41, 0.18, 0.35]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0315540940
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.6486
+
+
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Completed training epoch 500
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 500. Details: MaxEpochsTerminationCondition(500)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination details: MaxEpochsTerminationCondition(500)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Total epochs: 501
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Best epoch number: 200
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Score at best epoch: 0.1204249803715673
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.21, 0.22, 0.13, 0.29, 0.15, 0.19, 0.48, 0.44, 0.50, 0.50, 0.37, 0.30, 0.37, 0.34, 0.53, 0.25, 0.24, 0.34, 0.33, 0.41, 0.41, 0.31, 0.31, 0.26, 0.55, 0.56, 0.55, 0.56, 0.61, 0.09, 0.07, 0.07, 0.17, 0.20, 0.20, 0.04, 0.12, 0.06, 0.12, 0.12, 0.04, 0.04, 0.04, 0.04, 0.04, 0.35, 0.28, 0.27, 0.27, 0.24, 0.30, 0.40, 0.17, 0.20, 0.17, 0.34, 0.33, 0.04, 0.12, 0.52, 0.59, 0.09, 0.08, 0.08, 0.08, 0.08, 0.09, 0.08, 0.08, 0.08, 0.09, 0.08, 0.14, 0.59, 0.53, 0.52, 0.50, 0.27, 0.25, 0.24, 0.25, 0.27, 0.29, 0.14, 0.12, 0.17, 0.14, 0.12, 0.17, 0.17, 0.12, 0.19, 0.17, 0.17, 0.45, 0.12, 0.18, 0.60, 0.52, 0.43, 0.34, 0.27, 0.21, 0.29, 0.24]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0057558270
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.9113
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.27, 0.14, 0.31, 0.09, 0.17, 0.31, 0.55, 0.37, 0.30, 0.06, 0.45, 0.20, 0.13, 0.16, 0.15, 0.04, 0.49, 0.35, 0.19, 0.35]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0389744163
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.5398
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.24, 0.22, 0.22, 0.19, 0.16, 0.25, 0.29, 0.48, 0.48, 0.48, 0.38, 0.38, 0.32, 0.31, 0.52, 0.29, 0.30, 0.29, 0.29, 0.33, 0.33, 0.29, 0.29, 0.38, 0.55, 0.57, 0.55, 0.57, 0.49, 0.19, 0.18, 0.19, 0.18, 0.24, 0.24, 0.08, 0.10, 0.10, 0.10, 0.10, 0.08, 0.08, 0.08, 0.08, 0.08, 0.31, 0.28, 0.31, 0.31, 0.28, 0.27, 0.31, 0.19, 0.19, 0.19, 0.33, 0.40, 0.27, 0.31, 0.47, 0.48, 0.11, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.11, 0.12, 0.15, 0.47, 0.48, 0.48, 0.48, 0.21, 0.21, 0.21, 0.26, 0.29, 0.31, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.25, 0.22, 0.15, 0.41, 0.41, 0.42, 0.34, 0.34, 0.34, 0.28, 0.28]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0117075795
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.8135
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.29, 0.14, 0.29, 0.11, 0.14, 0.27, 0.53, 0.30, 0.38, 0.19, 0.48, 0.20, 0.26, 0.25, 0.16, 0.08, 0.48, 0.39, 0.19, 0.33]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0308353901
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.6550
+
+
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Termination details: MaxEpochsTerminationCondition(250)
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Total epochs: 251
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Best epoch number: 230
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - Score at best epoch: 0.12016193665266792
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.21, 0.22, 0.20, 0.18, 0.16, 0.26, 0.33, 0.48, 0.48, 0.48, 0.37, 0.35, 0.34, 0.32, 0.53, 0.30, 0.29, 0.30, 0.30, 0.36, 0.36, 0.30, 0.30, 0.34, 0.56, 0.57, 0.56, 0.57, 0.48, 0.15, 0.14, 0.15, 0.16, 0.22, 0.22, 0.07, 0.10, 0.09, 0.10, 0.10, 0.07, 0.07, 0.07, 0.07, 0.07, 0.33, 0.26, 0.29, 0.29, 0.26, 0.28, 0.34, 0.19, 0.19, 0.18, 0.34, 0.41, 0.19, 0.26, 0.51, 0.52, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.14, 0.51, 0.51, 0.51, 0.50, 0.21, 0.21, 0.21, 0.26, 0.29, 0.31, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.28, 0.19, 0.16, 0.44, 0.43, 0.43, 0.34, 0.34, 0.33, 0.27, 0.26]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0099092438
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.8443
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.30, 0.15, 0.30, 0.10, 0.15, 0.28, 0.54, 0.29, 0.35, 0.16, 0.45, 0.19, 0.23, 0.22, 0.15, 0.07, 0.48, 0.41, 0.19, 0.34]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0308151007
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.6583
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train label set:
+[0.21, 0.23, 0.12, 0.30, 0.12, 0.11, 0.52, 0.37, 0.40, 0.67, 0.33, 0.35, 0.42, 0.29, 0.53, 0.25, 0.20, 0.25, 0.25, 0.55, 0.26, 0.15, 0.68, 0.25, 0.49, 0.56, 0.57, 0.59, 0.62, 0.07, 0.07, 0.07, 0.18, 0.27, 0.14, 0.13, 0.15, 0.03, 0.04, 0.16, 0.02, 0.02, 0.04, 0.03, 0.03, 0.35, 0.32, 0.28, 0.22, 0.25, 0.30, 0.40, 0.08, 0.35, 0.10, 0.36, 0.30, 0.07, 0.11, 0.38, 0.73, 0.17, 0.12, 0.04, 0.04, 0.03, 0.08, 0.06, 0.17, 0.06, 0.04, 0.08, 0.15, 0.72, 0.61, 0.47, 0.34, 0.25, 0.25, 0.26, 0.27, 0.26, 0.27, 0.10, 0.07, 0.06, 0.11, 0.07, 0.07, 0.29, 0.26, 0.33, 0.15, 0.16, 0.46, 0.09, 0.15, 0.70, 0.55, 0.40, 0.21, 0.19, 0.18, 0.37, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - train prediction set:
+[0.22, 0.22, 0.21, 0.19, 0.16, 0.25, 0.31, 0.48, 0.48, 0.48, 0.38, 0.37, 0.33, 0.32, 0.52, 0.30, 0.30, 0.30, 0.30, 0.35, 0.35, 0.30, 0.30, 0.35, 0.56, 0.57, 0.56, 0.57, 0.48, 0.17, 0.16, 0.16, 0.16, 0.23, 0.23, 0.07, 0.10, 0.09, 0.10, 0.10, 0.07, 0.07, 0.07, 0.07, 0.07, 0.33, 0.27, 0.30, 0.30, 0.27, 0.28, 0.33, 0.19, 0.19, 0.19, 0.34, 0.41, 0.22, 0.28, 0.50, 0.51, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.15, 0.50, 0.50, 0.50, 0.49, 0.21, 0.21, 0.21, 0.26, 0.29, 0.31, 0.15, 0.14, 0.15, 0.15, 0.14, 0.15, 0.15, 0.14, 0.15, 0.15, 0.15, 0.27, 0.20, 0.16, 0.43, 0.43, 0.42, 0.34, 0.34, 0.34, 0.27, 0.27]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set MSE is:0.0105456897
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - training set R is:0.8337
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test label value: 
+[0.27, 0.16, 0.22, 0.08, 0.09, 0.30, 0.51, 0.07, 0.10, 0.47, 0.69, 0.24, 0.20, 0.25, 0.40, 0.02, 0.58, 0.90, 0.05, 0.30]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - test prediction value: 
+[0.30, 0.15, 0.30, 0.11, 0.15, 0.28, 0.53, 0.29, 0.36, 0.17, 0.46, 0.19, 0.24, 0.23, 0.15, 0.07, 0.48, 0.40, 0.19, 0.34]
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set MSE is: 0.0306208938
+[main] INFO net.mydreamy.mlpharmaceutics.oraldisintegratingtablet.TrainningDisintegrationTime - testing set R is: 0.6604

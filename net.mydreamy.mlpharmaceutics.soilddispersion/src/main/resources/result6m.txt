@@ -1,0 +1,800 @@
+        MultiLayerNetwork net = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
+                .seed(seed)
+                .iterations(iterations)
+                .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                .learningRate(learningRate)
+                .weightInit(WeightInit.XAVIER)
+                .regularization(true)
+                .l2(1e-6)
+                .gradientNormalization(GradientNormalization.RenormalizeL2PerLayer)
+              //  .dropOut(0.5)
+                .updater(Updater.NESTEROVS).momentum(0.8)
+              //  .updater(Updater.ADAM)
+                .list()
+                .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(1, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(2, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(3, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+//                .layer(4, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+//                        .activation("tanh")
+//                        .build())
+//                .layer(5, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+//                        .activation("tanh")
+//                        .build())
+                .layer(4, new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
+                        .activation("softmax")
+                        .nIn(numHiddenNodes).nOut(numOutputs).build())
+                .pretrain(false).backprop(true).build()
+        );
+        net.init();
+        net.setListeners(new ScoreIterationListener(1));
+        
+        [main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination details: MaxEpochsTerminationCondition(1000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Total epochs: 1000
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Best epoch number: 999
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Score at best epoch: 0.4177985918423799
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8332
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.58, 0.42],
+ [0.59, 0.41],
+ [0.94, 0.06],
+ [0.89, 0.11],
+ [0.75, 0.25],
+ [0.91, 0.09],
+ [0.91, 0.09],
+ [0.91, 0.09],
+ [0.64, 0.36],
+ [0.68, 0.32],
+ [0.69, 0.31],
+ [0.65, 0.35],
+ [0.65, 0.35],
+ [0.41, 0.59],
+ [0.50, 0.50],
+ [0.96, 0.04]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.7848
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8332
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.58, 0.42],
+ [0.59, 0.41],
+ [0.94, 0.06],
+ [0.89, 0.11],
+ [0.75, 0.25],
+ [0.91, 0.09],
+ [0.91, 0.09],
+ [0.91, 0.09],
+ [0.64, 0.36],
+ [0.68, 0.32],
+ [0.69, 0.31],
+ [0.65, 0.35],
+ [0.65, 0.35],
+ [0.41, 0.59],
+ [0.50, 0.50],
+ [0.96, 0.04]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.7848
+        
+        
+        [main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination details: MaxEpochsTerminationCondition(2000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Total epochs: 2000
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Best epoch number: 1999
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Score at best epoch: 0.34661173830223246
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8750
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.66, 0.34],
+ [0.67, 0.33],
+ [1.00, 0.00],
+ [0.97, 0.03],
+ [0.92, 0.08],
+ [1.00, 0.00],
+ [0.99, 0.01],
+ [1.00, 0.00],
+ [0.48, 0.52],
+ [0.59, 0.41],
+ [0.61, 0.39],
+ [0.35, 0.65],
+ [0.33, 0.67],
+ [0.42, 0.58],
+ [0.18, 0.82],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.8545
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8750
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.66, 0.34],
+ [0.67, 0.33],
+ [1.00, 0.00],
+ [0.97, 0.03],
+ [0.92, 0.08],
+ [1.00, 0.00],
+ [0.99, 0.01],
+ [1.00, 0.00],
+ [0.48, 0.52],
+ [0.59, 0.41],
+ [0.61, 0.39],
+ [0.35, 0.65],
+ [0.33, 0.67],
+ [0.42, 0.58],
+ [0.18, 0.82],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.8545
+        
+        
+        [main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination details: MaxEpochsTerminationCondition(3000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Total epochs: 3000
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Best epoch number: 2998
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Score at best epoch: 0.29645013398755277
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8897
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.71, 0.29],
+ [0.72, 0.28],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.96, 0.04],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.40, 0.60],
+ [0.80, 0.20],
+ [0.85, 0.15],
+ [0.26, 0.74],
+ [0.23, 0.77],
+ [0.36, 0.64],
+ [0.05, 0.95],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.8545
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8897
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.71, 0.29],
+ [0.73, 0.27],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.97, 0.03],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.41, 0.59],
+ [0.81, 0.19],
+ [0.85, 0.15],
+ [0.27, 0.73],
+ [0.24, 0.76],
+ [0.37, 0.63],
+ [0.05, 0.95],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.8545
+        
+        
+        
+        [main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Termination details: MaxEpochsTerminationCondition(4000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Total epochs: 4001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Best epoch number: 3400
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - Score at best epoch: 0.2940348043802808
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8885
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.71, 0.29],
+ [0.73, 0.27],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.99, 0.01],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.38, 0.62],
+ [0.90, 0.10],
+ [0.94, 0.06],
+ [0.18, 0.82],
+ [0.14, 0.86],
+ [0.33, 0.67],
+ [0.02, 0.98],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.8545
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - training set F1 is:0.8885
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test label value: 
+[[0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - test prediction value: 
+[[0.71, 0.29],
+ [0.73, 0.27],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.98, 0.02],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.39, 0.61],
+ [0.86, 0.14],
+ [0.90, 0.10],
+ [0.23, 0.77],
+ [0.19, 0.81],
+ [0.35, 0.65],
+ [0.03, 0.97],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion - testing set F1 is: 0.8545
+
+
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 6000. Details: MaxEpochsTerminationCondition(6000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination details: MaxEpochsTerminationCondition(6000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Total epochs: 6001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Best epoch number: 3400
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Score at best epoch: 0.23049716470118944
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.9104
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.88, 0.12],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.37, 0.63],
+ [0.96, 0.04],
+ [0.98, 0.02],
+ [0.09, 0.91],
+ [0.07, 0.93],
+ [0.31, 0.69],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.8885
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.73, 0.27],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.98, 0.02],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.39, 0.61],
+ [0.86, 0.14],
+ [0.90, 0.10],
+ [0.23, 0.77],
+ [0.19, 0.81],
+ [0.35, 0.65],
+ [0.03, 0.97],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 10000. Details: MaxEpochsTerminationCondition(10000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination details: MaxEpochsTerminationCondition(10000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Total epochs: 10001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Best epoch number: 3400
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Score at best epoch: 0.23049716470118944
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.9099
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.96, 0.04],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.38, 0.62],
+ [0.99, 0.01],
+ [1.00, 0.00],
+ [0.04, 0.96],
+ [0.02, 0.98],
+ [0.30, 0.70],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.8885
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.73, 0.27],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.98, 0.02],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.39, 0.61],
+ [0.86, 0.14],
+ [0.90, 0.10],
+ [0.23, 0.77],
+ [0.19, 0.81],
+ [0.35, 0.65],
+ [0.03, 0.97],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 15000. Details: MaxEpochsTerminationCondition(15000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination details: MaxEpochsTerminationCondition(15000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Total epochs: 15001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Best epoch number: 3400
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Score at best epoch: 0.23049716470118944
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.9099
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.99, 0.01],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.38, 0.62],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.02, 0.98],
+ [0.01, 0.99],
+ [0.27, 0.73],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.8885
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.73, 0.27],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.98, 0.02],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.39, 0.61],
+ [0.86, 0.14],
+ [0.90, 0.10],
+ [0.23, 0.77],
+ [0.19, 0.81],
+ [0.35, 0.65],
+ [0.03, 0.97],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+        
+        
+        
+ 230
+
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination details: MaxEpochsTerminationCondition(25000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Total epochs: 25001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Best epoch number: 2700
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Score at best epoch: 0.23593430279576824
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.9183
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.35, 0.65],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [0.19, 0.81],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.8876
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.94, 0.06],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.99, 0.01],
+ [1.00, 0.00],
+ [0.48, 0.52],
+ [0.83, 0.17],
+ [0.87, 0.13],
+ [0.22, 0.78],
+ [0.19, 0.81],
+ [0.42, 0.58],
+ [0.02, 0.98],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+
+
+numHiddenNodes = 250;
+        MultiLayerNetwork net = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
+                .seed(seed)
+                .iterations(iterations)
+                .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                .learningRate(learningRate)
+                .weightInit(WeightInit.XAVIER)
+                .regularization(true)
+                .l2(1e-6)
+                .gradientNormalization(GradientNormalization.RenormalizeL2PerLayer)
+              //  .dropOut(0.5)
+                .updater(Updater.NESTEROVS).momentum(0.8)
+              //  .updater(Updater.ADAM)
+                .list()
+                .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(1, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(2, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+                .layer(3, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+                        .activation("tanh")
+                        .build())
+//                .layer(4, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+//                        .activation("tanh")
+//                        .build())
+//                .layer(5, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(numHiddenNodes)
+//                        .activation("tanh")
+//                        .build())
+                .layer(4, new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
+                        .activation("softmax")
+                        .nIn(numHiddenNodes).nOut(numOutputs).build())
+                .pretrain(false).backprop(true).build()
+        );
+        net.init();
+        net.setListeners(new ScoreIterationListener(100));
+
+[main] INFO org.deeplearning4j.earlystopping.trainer.BaseEarlyStoppingTrainer - Hit epoch termination condition at epoch 30000. Details: MaxEpochsTerminationCondition(30000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination reason: EpochTerminationCondition
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Termination details: MaxEpochsTerminationCondition(30000)
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Total epochs: 30001
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Best epoch number: 3000
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - Score at best epoch: 0.2440037155086807
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== testing =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== latest model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.9331
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.44, 0.56],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [0.35, 0.65],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.9265
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - ========================== best model =========================
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - training set F1 is:0.8955
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test label value: 
+[[1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [1.00, 0.00],
+ [0.00, 1.00],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - test prediction value: 
+[[0.98, 0.02],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [1.00, 0.00],
+ [0.58, 0.42],
+ [0.71, 0.29],
+ [0.74, 0.26],
+ [0.33, 0.67],
+ [0.30, 0.70],
+ [0.40, 0.60],
+ [0.00, 1.00],
+ [1.00, 0.00]]
+[main] INFO net.mydreamy.mlpharmaceutics.soliddispersion.TranningSolidDispersion6 - testing set F1 is: 0.8295
+        
