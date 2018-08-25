@@ -20,3 +20,8 @@ We have different four project, enter into the corresponding directory then type
 mvn compile
 mvn exec:java
 ```
+
+### Please cite our paper as follows:
+
+Run Han, Yilong Yang, Xiaoshan Li, and Defang Ouyang. [Predicting oral disintegrating tablet formulations by neural network techniques](https://www.researchgate.net/publication/322902289_Predicting_Oral_Disintegrating_Tablet_Formulations_by_Neural_Network_Techniques). Asian Journal of Pharmaceutical Sciences (2018). 
+
